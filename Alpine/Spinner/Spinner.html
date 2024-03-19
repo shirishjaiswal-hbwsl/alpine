@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spinner</title>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div x-data="{value : '', toggleVisible: true}">
+        <div class="flex m-2 p-4">
+            <p>
+                <label for="spinner">Select a value:</label>
+                <input id="spinner" name="value" class="border-2 border-black p-2" value="{value}" x-model="value" />
+            <div id="toggle" class="flex flex-col ml-2" x-show="toggleVisible">
+                <button x-on:click="value++;">&#8593;</button>
+                <button x-on:click="value--;">&#8595;</button>
+            </div>
+            </p>
+        </div>
+
+        <div class="flex m-2 p-4">
+            <p>
+                <button x-on:click="toggleVisible = !toggleVisible" id="disable" class="m-2 p-4 border-2 border-black">Toggle disable/enable</button>
+                <button x-on:click="toggleVisible = !toggleVisible" id="destroy" class="m-2 p-4 border-2 border-black">Toggle widget</button>
+            </p>
+        </div>
+
+        <div class="flex m-2 p-4">
+            <p>
+            <div @notify="alert(value)">
+                <button @click="$dispatch('notify')" id="getvalue" class="m-2 p-4 border-2 border-black">Get value</button>
+            </div>
+            <button x-on:click="{value = 5}" id="setvalue" class="m-2 p-4 border-2 border-black">Set value to 5</button>
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>

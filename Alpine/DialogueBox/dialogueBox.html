@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dialoguebox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
+    ></script>
+  </head>
+  <body>
+    <div x-data="{open: true}">
+      <div
+        x-show="open"
+        class="border fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white z-50"
+      >
+        <button
+          @click="open = false"
+          class="border-2 border-solid border-black absolute top-0 right-0"
+        >
+          &times;
+        </button>
+
+        <h2 class="text-2xl font-bold mb-4 bg-gray-100">Basic Dialog</h2>
+        <p>
+          This is the default dialog which is useful for displaying information.
+          The dialog window can be moved, resized, and closed with the 'x' icon.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

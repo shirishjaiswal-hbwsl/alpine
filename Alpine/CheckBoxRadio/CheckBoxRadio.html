@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tailwind CSS Checkbox and Radio</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"
+    ></script>
+    <style>
+      .form-checkbox:checked + span,
+      .form-radio:checked + span {
+        background-color: hwb(204 41% 17%);
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div>
+      <h1 class="text-3xl font-bold mb-4">
+        Checkbox and Radio button widgets with Tailwind CSS
+      </h1>
+      <div x-data="{ selectedRadio: ''}">
+        <h2 class="text-xl font-semibold mb-2">Radio Group</h2>
+        <fieldset class="border p-4 mb-4">
+          <legend class="text-lg font-semibold">Select a Location:</legend>
+          <label class="m-4">
+            <input
+              type="radio"
+              name="radio-1"
+              class="form-radio"
+              x-model="selectedRadio"
+              id="radio-1"
+              value="New York"
+            />
+            <span class="ml-2 inline-flex items-center p-2 border mb-2"
+              >New York</span
+            >
+          </label>
+          <label class="m-4">
+            <input
+              type="radio"
+              name="radio-1"
+              class="form-radio"
+              x-model="selectedRadio"
+              id="radio-2"
+              value="Paris"
+            />
+            <span class="ml-2 inline-flex items-center p-2 border mb-2"
+              >Paris</span
+            >
+          </label>
+          <label class="m-4">
+            <input
+              type="radio"
+              name="radio-1"
+              class="form-radio"
+              x-model="selectedRadio"
+              id="radio-3"
+              value="London"
+            />
+            <span class="ml-2 inline-flex items-center p-2 border mb-2"
+              >London</span
+            >
+          </label>
+        </fieldset>
+        <p>Location: <b x-text="selectedRadio"></b></p>
+      </div>
+
+      <div x-data="{selectedBox : []}">
+        <h2 class="text-xl font-semibold mb-2">Checkbox</h2>
+        <fieldset class="border p-4 mb-4">
+          <legend class="text-lg font-semibold">Hotel Ratings:</legend>
+          <label class="m-4">
+            <input
+              x-model="selectedBox"
+              type="checkbox"
+              name="checkbox-1"
+              class="form-checkbox"
+              value="2 Star"
+            />
+            <span class="ml-2 inline-flex items-center p-2 border mb-2"
+              >2 Star</span
+            >
+          </label>
+          <label class="m-4">
+            <input
+              x-model="selectedBox"
+              type="checkbox"
+              class="form-checkbox"
+              value="3 Star"
+            />
+            <span class="ml-2 inline-flex items-center p-2 border mb-2"
+              >3 Star</span
+            >
+          </label>
+          <label class="m-4">
+            <input
+              x-model="selectedBox"
+              type="checkbox"
+              class="form-checkbox"
+              value="4 Star"
+            />
+            <span class="ml-2 inline-flex items-center p-2 border mb-2"
+              >4 Star</span
+            >
+          </label>
+          <label class="m-4">
+            <input
+              x-model="selectedBox"
+              type="checkbox"
+              class="form-checkbox"
+              value="5 Star"
+            />
+            <span class="ml-2 inline-flex items-center p-2 border mb-2"
+              >5 Star</span
+            >
+          </label>
+        </fieldset>
+
+        <p>Checkbox Data :</p>
+        <ul>
+          <template x-for="data in selectedBox">
+            <li x-text="data"></li>
+          </template>
+        </ul>
+      </div>
+
+      <div x-data="{selectedBox : []}">
+        <h2 class="text-xl font-semibold mb-2">Checkbox nested in label</h2>
+        <fieldset class="border p-4">
+          <legend class="text-lg font-semibold">Bed Type:</legend>
+          <label class="m-4">
+            <input
+            x-model="selectedBox"
+              type="checkbox"
+              class="form-checkbox"
+              value="2 Double"
+            />
+            <span class="ml-2 inline-flex items-center p-2 border mb-2"
+              >2 Double</span
+            >
+          </label>
+          <label class="m-4">
+            <input
+            x-model="selectedBox"
+              type="checkbox"
+              class="form-checkbox"
+              value="2 Queen"
+            />
+            <span class="ml-2 inline-flex items-center p-2 border mb-2"
+              >2 Queen</span
+            >
+          </label>
+          <label class="m-4">
+            <input
+            x-model="selectedBox"
+              type="checkbox"
+              class="form-checkbox"
+              value="1 Queen"
+            />
+            <span class="ml-2 inline-flex items-center p-2 border mb-2"
+              >1 Queen</span
+            >
+          </label>
+          <label class="m-4">
+            <input
+            x-model="selectedBox"
+              type="checkbox"
+              class="form-checkbox"
+              value="1 King"
+            />
+            <span class="ml-2 inline-flex items-center p-2 border mb-2"
+              >1 King</span
+            >
+          </label>
+        </fieldset>
+        <p>Checkbox Data :</p>
+        <ul>
+          <template x-for="data in selectedBox">
+            <li x-text="data"></li>
+          </template>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

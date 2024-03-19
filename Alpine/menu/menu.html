@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpine.js - Menu Widget</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
+    ></script>
+  </head>
+  <body class="flex flex-col justify-center items-center">
+    <div
+    class="w-[20%] border-2 flex flex-col items-start p-8 m-12"
+      x-data="{open: {openElectronics: false, openMusic: false, openRock: false, openJazz: false}}"
+    >
+      <ul id="menu" >
+        <li class="m-4"><div>Toys (n/a)</div></li>
+        <li class="cursor-pointer m-4">
+          <div>Books</div>
+        </li>
+        <li class="cursor-pointer m-4">
+          <div>Clothing</div>
+        </li>
+        <li
+          @click="open.openElectronics = !open.openElectronics"
+          class="cursor-pointer m-4"
+        >
+          <div>Electronics</div>
+          <ul x-show="open.openElectronics">
+            <li
+              class="m-4  border-b-2 border-b-black"
+            >
+              <div>Home</div>
+            </li>
+            <li class="m-4 border-b-black"><div>Entertainment</div></li>
+            <li class="m-4 border-b-black"><div>Car Hifi</div></li>
+            <li class="m-4 border-b-black"><div>Utilities</div></li>
+          </ul>
+        </li>
+        <li class="cursor-pointer m-4">
+          <div>Movies</div>
+        </li>
+        <li @click="open.openMusic = !open.openMusic" class="cursor-pointer m-4">
+          <div>Music</div>
+          <ul x-show="open.openMusic">
+            <li @click="open.openRock = !open.openRock" class="cursor-pointer m-4">
+              <div class=" border-b-2 border-b-black">Rock</div>
+              <ul x-show="open.openRock">
+                <li class="m-4 border-b-black"><div>Alternative</div></li>
+                <li class="m-4 border-b-black"><div>Classic</div></li>
+              </ul>
+            </li>
+
+            <li @click="open.openJazz = !open.openJazz; open.openMusic = true" class="cursor-pointer m-4">
+              <div class=" border-b-2 border-b-black">Jazz</div>
+              <div>
+                <ul x-show="open.openJazz">
+                  <li class="m-4 border-b-black"><div>Free Jazz</div></li>
+                  <li class="m-4 border-b-black"><div>Big Band</div></li>
+                  <li class="m-4 border-b-black"><div>Modern</div></li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="m-4">
+              <div class= "border-b-2 border-b-black">Pop</div>
+            </li>
+          </ul>
+        </li>
+        <li class="m-4"><div>Specials (n/a)</div></li>
+        <!-- More items... -->
+      </ul>
+    </div>
+  </body>
+</html>

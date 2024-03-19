@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tailwind CSS Rental Car</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="widget container mx-auto p-8">
+      <h1 class="text-2xl font-semibold mb-4">Controlgroup</h1>
+
+      <fieldset class="border p-4 mb-4">
+        <legend class="text-lg font-semibold mb-4">Rental Car</legend>
+        
+          <div id="controlgroup1" class="flex gap-4">
+
+            <div class="border p-2" x-data="{ carType: '' }">
+              <label for="car-type1">Car Type</label>
+              <select id="car-type1" class="w-full border p-2" x-model="carType">
+                <option value="CompactCar">Compact car</option>
+                <option value="MidSize Car">Midsize car</option>
+                <option value="Full Size Car">Full size car</option>
+                <option value="SUV">SUV</option>
+                <option value="Luxury">Luxury</option>
+                <option value="Truck">Truck</option>
+                <option value="Van">Van</option>
+              </select>
+            
+              <p>Car Type: <b x-text="carType"></b></p>
+            </div>
+
+          <div class="border p-2">
+            <label for="transmission-standard1">Standard</label>
+            <input
+              type="radio"
+              name="transmission1"
+              id="transmission-standard1"
+            />
+          </div>
+          <div class="border p-2">
+            <label for="transmission-automatic1">Automatic</label>
+            <input
+              type="radio"
+              name="transmission1"
+              id="transmission-automatic1"
+            />
+          </div>
+          <div class="border p-2">
+            <label for="insurance1">Insurance</label>
+            <input type="checkbox" name="insurance1" id="insurance1" />
+          </div>
+          <div class="border p-2">
+            <label for="horizontal-spinner1" class="ui-controlgroup-label"
+              >Number of Cars</label
+            >
+            <input id="horizontal-spinner1" class="w-full border p-2" />
+          </div>
+        </div>
+        <button class="px-4 py-2 rounded">Book Now!</button>
+      </fieldset>
+
+      <fieldset class="border p-4">
+        <legend class="text-lg font-semibold mb-4">Rental Car</legend>
+        <div id="controlgroup2" class="flex flex-col gap-4">
+          <div class="border p-2">
+            <label for="car-type2">Car Type</label>
+            <select id="car-type2" class="w-full border p-2">
+              <option>Compact car</option>
+              <option>Midsize car</option>
+              <option>Full size car</option>
+              <option>SUV</option>
+              <option>Luxury</option>
+              <option>Truck</option>
+              <option>Van</option>
+            </select>
+          </div>
+          <div class="border p-2">
+            <label for="transmission-standard2">Standard</label>
+            <input
+              type="radio"
+              name="transmission2"
+              id="transmission-standard2"
+            />
+          </div>
+          <div class="border p-2">
+            <label for="transmission-automatic2">Automatic</label>
+            <input
+              type="radio"
+              name="transmission2"
+              id="transmission-automatic2"
+            />
+          </div>
+          <div class="border p-2">
+            <label for="insurance2">Insurance</label>
+            <input type="checkbox" name="insurance2" id="insurance2" />
+          </div>
+          <div class="border p-2">
+            <label for="horizontal-spinner2" class="ui-controlgroup-label"
+              >Number of Cars</label
+            >
+            <input id="horizontal-spinner2" class="w-full border p-2" />
+          </div>
+        </div>
+        <button class="px-4 py-2 rounded">Book Now!</button>
+      </fieldset>
+    </div>
+  </body>
+</html>

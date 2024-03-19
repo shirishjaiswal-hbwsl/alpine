@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
+    <div x-data="{ buttonClicked: 'No Button Clicked Last' }">
+      <div class="flex">
+        <div class="m-2 p-4 border-4 border-black">
+          <a href="#" x-on:click="buttonClicked = 'Anchor Clicked'">Anchor</a>
+        </div>
+        <div class="m-2 p-4 border-4 border-black">
+          <button type="reset" x-on:click="buttonClicked = 'Reset Clicked'">
+            Reset
+          </button>
+        </div>
+        <div class="m-2 p-4 border-4 border-black">
+          <button type="submit" x-on:click="buttonClicked = 'Submit Clicked'">
+            Submit
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <p>The Button Clicked is: <b x-text="buttonClicked"></b></p>
+      </div>
+    </div>
+  </body>
+</html>

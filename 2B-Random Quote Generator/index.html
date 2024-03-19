@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Quote Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
+    <div class="flex justify-center items-center" x-data="{quoteInfo : getRandomQuote()}">
+      <div
+        id="outer-container"
+        class="bg-amber-950 w-[110vh] h-[75vh] m-20 flex flex-col justify-center items-center"
+      >
+        <div id="inner-container" class="bg-white w-[75%] h-[75%] flex flex-col justify-between">
+          <div id="content" >
+            <div id="quote" class="flex-row my-20 mx-20 text-justify text-4xl">
+              <p x-text="quoteInfo[0]">
+              </p>
+            </div>
+            <div id="author" class="italic m-8 text-2xl float-end mr-10">
+              <p>- <i x-text="quoteInfo[1]"></i></p>
+            </div>
+          </div>
+          <div id="button" class=" flex justify-between content-end my-12 mx-12">
+            <div id="share" class="flex flex-row">
+              <div id="twitter" class="m-4 p-2 font- text-white bg-red-950">
+                <button>twitter</button>
+              </div>
+              <div id="threads" class="m-4 p-2 font- text-white bg-red-950">
+                <button>threads</button>
+              </div>
+            </div>
+            <div id="next-quote" class="m-4 p-2 font- text-white bg-red-950">
+              <button x-on:click="quoteInfo = getRandomQuote()">Next Quote</button>
+            </div>
+          </div>
+        </div>
+        <div class="text-white italic mt-4">
+          <p>- by Shirish</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let ;
+    function getRandomQuote() {
+      let quotes = [
+      ["The only way to do great work is to love what you do.", "Steve Jobs"],
+      ["In three words I can sum up everything I've learned about life: it goes on.", "Robert Frost"],
+      ["The greatest glory in living lies not in never falling, but in rising every time we fall.", "Nelson Mandela"],
+      ["The purpose of our lives is to be happy.", "Dalai Lama"],
+      ["Success is not final, failure is not fatal: It is the courage to continue that counts.", "Winston Churchill"]
+    ];
+      let min = 0;
+      let max = quotes.length-1;
+      let idx = Math.floor(Math.random() * (max - min + 1)) + min;
+      return quotes[idx];
+    }
+  </script>
+</html>

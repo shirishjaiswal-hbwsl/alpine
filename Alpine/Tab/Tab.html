@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+</head>
+<body class="flex justify-center items-center">
+  <div class="border w-[50%]">
+    <div x-data="{ activeTab: 1 }">
+      <div class="flex">
+        <button @click="activeTab = 1" :class="{ 'bg-gray-300': activeTab === 1 }" class="flex-1 border p-2 text-lg">Section 1</button>
+        <button @click="activeTab = 2" :class="{ 'bg-gray-300': activeTab === 2 }" class="flex-1 border p-2 text-lg">Section 2</button>
+        <button @click="activeTab = 3" :class="{ 'bg-gray-300': activeTab === 3 }" class="flex-1 border p-2 text-lg">Section 3</button>
+        <button @click="activeTab = 4" :class="{ 'bg-gray-300': activeTab === 4 }" class="flex-1 border p-2 text-lg">Section 4</button>
+      </div>
+
+      <div x-show="activeTab === 1">
+        <p>
+          Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam.
+          Integer ut neque. Vivamus nisi metus, molestie vel, gravida in,
+          condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam
+          mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum
+          avelit eu ante scelerisque vulputate.
+        </p>
+      </div>
+
+      <div x-show="activeTab === 2">
+        <p>
+          Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit
+          amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris
+          turpis porttitor velit, faucibus interdum tellus libero ac justo.
+          Vivamus non quam. In suscipit faucibus urna.
+        </p>
+      </div>
+
+      <div x-show="activeTab === 3">
+        <p>
+          Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque
+          lobortis. Phasellus pellentesque purus in massa. Aenean in pede.
+          Phasellus ac libero ac tellus pellentesque semper. Sed ac felis.
+          Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu
+          iaculis leo purus venenatis dui.
+        </p>
+        <ul>
+          <li>List item one</li>
+          <li>List item two</li>
+          <li>List item three</li>
+        </ul>
+      </div>
+
+      <div x-show="activeTab === 4">
+        <p>
+          Cras dictum. Pellentesque habitant morbi tristique senectus et
+          netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum
+          primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+          Aenean lacinia mauris vel est.
+        </p>
+        <p>
+          Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat
+          lectus. Class aptent taciti sociosqu ad litora torquent per
+          conubia nostra, per inceptos himenaeos.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

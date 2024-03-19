@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SelectMenu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
+    ></script>
+  </head>
+  <body>
+    <div class="demo">
+      <form action="#">
+        <fieldset class="flex flex-col">
+          <div x-data="{speed : '', files : '', number : '', salutation : ''}">
+            <div>
+              <label for="speed">Select a speed</label>
+              <br />
+              <select name="speed" id="speed" x-model="speed">
+                <option value="Slower">Slower</option>
+                <option value="slow">Slow</option>
+                <option value="Medium">Medium</option>
+                <option value="Fast">Fast</option>
+                <option value="Faster">Faster</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="files">Select a file</label>
+              <br />
+              <select name="files" id="files" x-model="files">
+                <optgroup label="Scripts">
+                  <option value="jquery">jQuery.js</option>
+                  <option value="jqueryui">ui.jQuery.js</option>
+                </optgroup>
+                <optgroup label="Other files">
+                  <option value="somefile">Some unknown file</option>
+                  <option value="someotherfile">
+                    Some other file with a very long option text
+                  </option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div>
+              <label for="number">Select a number</label>
+              <br />
+              <select name="number" id="number" x-model="number">
+                <option>1</option>
+                <option selected="selected">2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="salutation">Select a title</label>
+              <br />
+              <select name="salutation" id="salutation" x-model="salutation">
+                <option disabled selected>Please pick one</option>
+                <option value="Mr">Mr.</option>
+                <option value="Mrs">Mrs.</option>
+                <option value="Dr">Dr.</option>
+                <option value="Prof">Prof.</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <p>Speed : <b x-text="speed"></b> Files : <b x-text="files"></b> number : <b x-text="number"></b> Salutation : <b x-text="salutation"></b></p>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpine.js - Progress Bar Widget</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
+    ></script>
+  </head>
+  <body class="flex justify-center">
+    <div x-data="{ width: 0, start, restart, i: 0 }" class="w-[50%] ">
+      <div class="flex flex-col justify-center items-center gap-4">
+        <div
+          class="h-3 bg-black transition-width duration-300 ease-out m-4"
+          :style="`width: ${width}%`"
+        ></div>
+
+        <div class="flex flex-row justify-center items-center gap-4 m-4">
+          <button class="border-4 p-2" @click="start">Start</button>
+
+          <button class="border-4 p-2" @click="restart">Restart</button>
+        </div>
+      </div>
+
+      <script>
+        function start() {
+          const intervalId = setInterval(() => {
+            this.width += 25;
+            this.i++;
+            if (this.i === 4) {
+              clearInterval(intervalId);
+            }
+          }, 1000);
+        }
+
+        function restart() {
+          this.width = 0;
+          this.i = 0;
+        }
+      </script>
+    </div>
+  </body>
+</html>

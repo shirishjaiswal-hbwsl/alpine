@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accortion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body class="flex justify-center items-center">
+    <div class="border w-[50%]">
+      <div
+        x-data="{
+      section1:true,
+      section2:false,
+      section3:false,
+      section4:false,
+    }"
+      >
+        <div
+          x-data="{
+        toggleOne() {
+          this.section1 = true
+          this.section2 = false
+          this.section3 = false
+          this.section4 = false;
+        }
+      }"
+        >
+          <button @click="toggleOne()" class="w-[100%] border p-2 text-lg">
+            Section 1
+          </button>
+          <div x-show="section1">
+            <p>
+              Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam.
+              Integer ut neque. Vivamus nisi metus, molestie vel, gravida in,
+              condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam
+              mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum
+              avelit eu ante scelerisque vulputate.
+            </p>
+          </div>
+        </div>
+        <div
+          x-data="{
+        toggleTwo() {
+          this.section1 = false
+          this.section2 = true
+          this.section3 = false
+          this.section4 = false
+        }
+      }"
+        >
+          <button @click="toggleTwo()" class="w-[100%] border p-2 text-lg">
+            Section 2
+          </button>
+          <div x-show="section2">
+            <p>
+              Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit
+              amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris
+              turpis porttitor velit, faucibus interdum tellus libero ac justo.
+              Vivamus non quam. In suscipit faucibus urna.
+            </p>
+          </div>
+        </div>
+        <div
+          x-data="{
+        toggleThree() {
+          this.section1 = false
+          this.section2 = false
+          this.section3 = true
+          this.section4 = false;
+        }
+      }"
+        >
+          <button @click="toggleThree()" class="w-[100%] border p-2 text-lg">
+            Section 3
+          </button>
+          <div x-show="section3">
+            <p>
+              Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque
+              lobortis. Phasellus pellentesque purus in massa. Aenean in pede.
+              Phasellus ac libero ac tellus pellentesque semper. Sed ac felis.
+              Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu
+              iaculis leo purus venenatis dui.
+            </p>
+            <ul>
+              <li>List item one</li>
+              <li>List item two</li>
+              <li>List item three</li>
+            </ul>
+          </div>
+        </div>
+        <div
+          x-data="{
+        toggleFour() {
+          this.section1 = false
+          this.section2 = false
+          this.section3 = false
+          this.section4 = true;
+        }
+      }"
+        >
+          <button @click="toggleFour()" class="w-[100%] border p-2 text-lg">
+            Section 4
+          </button>
+          <div x-show="section4">
+            <p>
+              Cras dictum. Pellentesque habitant morbi tristique senectus et
+              netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum
+              primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+              Aenean lacinia mauris vel est.
+            </p>
+            <p>
+              Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat
+              lectus. Class aptent taciti sociosqu ad litora torquent per
+              conubia nostra, per inceptos himenaeos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="border w-[50%]">
+      <div x-data="accordionData()">
+        <div x-data="sectionData(1)">
+          <button @click="toggleSection()" class="w-[100%] border p-2 text-lg">
+            Section 1
+          </button>
+          <div x-show="isActive">
+            <p>
+              Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam.
+              Integer ut neque. Vivamus nisi metus, molestie vel, gravida in,
+              condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam
+              mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum
+              avelit eu ante scelerisque vulputate.
+            </p>
+          </div>
+        </div>
+        
+        <div x-data="sectionData(2)">
+          <button @click="toggleSection()" class="w-[100%] border p-2 text-lg">
+            Section 2
+          </button>
+          <div x-show="isActive">
+            <p>
+              Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam.
+              Integer ut neque. Vivamus nisi metus, molestie vel, gravida in,
+              condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam
+              mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum
+              avelit eu ante scelerisque vulputate.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function accordionData() {
+        return {
+          sections: [1, 2, 3, 4],
+        };
+      }
+
+      function sectionData(sectionNumber) {
+        return {
+          isActive: false,
+
+          toggleSection() {
+            this.isActive = !this.isActive;
+            this.closeOtherSections(sectionNumber);
+          },
+
+          closeOtherSections(currentSection) {
+            this.$parent.sections.forEach((section) => {
+              if (section !== currentSection) {
+                this.$root[`section${section}`].isActive = false;
+              }
+            });
+          },
+        };
+      }
+    </script> -->
+  </body>
+</html>
